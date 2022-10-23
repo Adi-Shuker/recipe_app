@@ -9,3 +9,10 @@ $(".btn-search-recipes").on("click", () => {
         renderer.render(recipes);
     });
 });
+
+$(".recipes").on("click", ".recipe-img", function () {
+    ingredient = $($(this).siblings("div .card-content"))
+        .children("ul")
+        .children("li")[0].innerText;
+    alert(ingredient);
+});
