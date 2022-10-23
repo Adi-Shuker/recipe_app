@@ -13,9 +13,56 @@
 
 <body>
     <div>
-        hello world!
+        <div class="row valign-wrapper">
+            <div class></div>
+            <div class="col s7 m7">
+                <input type="text" placeholder="ingredient" id="ingredient">
+            </div>
+            <div class="col s3 m3">
+                <label class="col s6 m6">
+                    <input type="checkbox" class="filled-in dairy-free" />
+                    <span class="dairy-free">Dairy Free</span>
+                </label>
+                <label class="col s6 m6">
+                    <input type="checkbox" class="filled-in gluten-free" />
+                    <span class="gluten-free">Gluten Free</span>
+                </label>
+            </div>
+            <div class="col s2 m2">
+                <button class="btn btn-search-recipes waves-effect waves-light red" type="submit" name="action">search
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
     </div>
-
+    <script id="recipes-template" type="text/x-handlebars-template">
+            {{#each recipes}}
+            <div class="col sample s4 m4">
+                <div class="card">
+                        <img src="{{this.thumbnail}}" class="recipe-img col s12">
+                        <span class="card-title red-text player-name">{{this.title}}</span>
+                        <div class="card-content">
+                            <h4>Ingredients</h4>
+                            <ul class="collection with-header Ingredients">
+                                {{#each this.ingredients}}
+                                <li class="collection-item">{{this}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+    </script>
+    <div class="row">
+        <div class="recipes"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="client\recipes.js"></script>
+    <script src="client\renderer.js"></script>
+    <script src="client\recipesController.js"></script>
 </body>
 
 </html>
